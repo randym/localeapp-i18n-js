@@ -1,5 +1,5 @@
 module Localeapp
-  module I18n
+  module I18nJs
     module Version
       MAJOR = 0
       MINOR = 0

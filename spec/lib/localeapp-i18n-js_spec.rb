@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Localeapp::I18n do
+describe Localeapp_::I18nJs do
 
   it "is enabled when rails env is delopment" do
     Rails.env = "deployment"

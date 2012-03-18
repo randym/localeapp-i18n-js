@@ -1,5 +1,5 @@
 module Localeapp
-  module I18n
+  module I18nJs
     class Engine < ::Rails::Engine
     end
   end
