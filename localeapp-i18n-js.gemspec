@@ -3,7 +3,7 @@ require "localeapp/i18n-js/version"
 
 Gem::Specification.new do |s|
   s.name        = "localeapp-i18n-js"
-  s.version     = Localeapp::I18nJs::Version::STRING
+  s.version     = Localeapp::I18nJs::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Randy Morgan"]
   s.email       = ["digital.ipseity@gmail.com"]

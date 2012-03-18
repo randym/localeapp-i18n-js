@@ -1,11 +1,18 @@
 require 'i18n-js/engine.rb'
 require 'i18n-js/version.rb'
+
 module Localeapp
   module I18nJs
+    extend self
     def report_missing_translations?
-      options = ['development']
-      options.concat(Rails.application.config.localeapp_i18n_js) if Rails.application.config.respond_to?(localeapp_i18n_js)
-      options.include?(Rails.env)
+      ['development'].concat(configured_environments).include?(::Rails.env)
     end
+
+    def configured_environments
+      return [] unless ::Rails.application.config.respond_to?(:localeapp_i18n_js)
+      ::Rails.application.config.localeapp_i18n_js
+    end
+
   end
+
 end
