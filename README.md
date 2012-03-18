@@ -40,4 +40,6 @@ You do, however, need to add
 
     //= require localeapp-i18n-js
 
+AFTER //=require i18n
+
 to app/assets/javascripts/application.js

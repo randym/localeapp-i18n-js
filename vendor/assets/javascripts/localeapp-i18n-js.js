@@ -1,31 +1,25 @@
-// Instantiate the object
 var I18n = I18n || {};
-I18n.report_missing_translations = true //<%= LocaleappI18nJs.report_missing_translations? %>
-I18n.localeapp_i18n_js_path = "/localeapp_i18n_js"
 
-
-//Hijact the default missingTranslation method to post to our controller
+//override the default I18n-js missingTranslation method to post back missing translations
 I18n.missingTranslation = function() {
-  var path = this.currentLocale(), count = arguments.length
+  var path = [], count = arguments.length
   for (var i = 0; i < count; i++) {
-    path += "." + arguments[i];
+    path.push(arguments[i]);
   }
+  path = path.join('.')
 
-  if(I18n.report_missing_translations) {
-    this.post_to_localeapp(path);
-  }
+  this.add_missing_translation(this.currentLocale(), path);
 
-  return '[missing "' + path + '" translation]';
+  return '[missing "' + this.currentLocale() + path + '" translation]';
 
 };
 
-I18n.post_to_localeapp = function post_to_localeapp(path) {
-  console.log(path)
+I18n.add_missing_translation = function add_missing_translation(locale, key) {
     $.ajax({
-      url: I18n.localeapp_i18n_js_path,
+      url: "/localeapp_i18n_js",
       type: 'POST',
       dataType: 'json',
-      data: {path: path},
+      data: {locale: locale, key: key},
       error: function(data, status, response) {
 	console.log(response)
       }
