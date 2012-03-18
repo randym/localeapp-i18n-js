@@ -18,6 +18,8 @@ Localeapp I18n-js: Iintegrating javascript based front end localizations to the 
 
 **Ruby Version**: 1.9.2, 1.9.3
 
+**Rails Version**: > 3.1
+
 **Release Date**: TBD
 
 Synopsis
@@ -27,9 +29,15 @@ Localeapp is a great service for simplifying the localization process for your s
 
 Installation
 ------------
-gem install localeapp-i18n-js
+    gem install localeapp-i18n-js
 
 Configuration
 -------------
 
-By default, you do not need to configure anything. When Rails is running in development mode all missing translations found by i18n-js will be passed on to the localeapp handlers that normally only pick up on I18n missing translations.
+Assuming you have properly configured i18n-js and localeapp, you do not need to configure anything. When Rails is running in development mode all missing translations found by i18n-js will be passed on to the localeapp handlers that normally only pick up on I18n missing translations.
+
+You do, however, need to add
+
+    //= require localeapp-i18n-js
+
+to app/assets/javascripts/application.js
