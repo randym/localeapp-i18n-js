@@ -1,4 +1,5 @@
 var I18n = I18n || {};
+I18n.report_missing_translations = <%= LocaleappI18nJs.report_missing_translations? %>
 
 //override the default I18n-js missingTranslation method to post back missing translations
 I18n.missingTranslation = function() {
