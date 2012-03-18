@@ -1,7 +1,5 @@
+require 'localeapp-i18n-js/engine'
 module LocaleappI18nJs
-
-  class Engine < ::Rails::Engine
-  end
 
   extend self
   def report_missing_translations?

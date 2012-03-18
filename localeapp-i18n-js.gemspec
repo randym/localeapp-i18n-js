@@ -1,5 +1,5 @@
 $:.push File.expand_path("../lib", __FILE__)
-require "version"
+require 'localeapp-i18n-js/version'
 
 Gem::Specification.new do |s|
   s.name        = "localeapp-i18n-js"

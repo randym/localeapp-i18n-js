@@ -8,7 +8,9 @@ I18n.missingTranslation = function() {
   }
   path = path.join('.')
 
-  this.add_missing_translation(this.currentLocale(), path);
+  if(this.report_missing_translations) {
+    this.add_missing_translation(this.currentLocale(), path);
+  }
 
   return '[missing "' + this.currentLocale() + path + '" translation]';
 
