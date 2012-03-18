@@ -1,11 +1,7 @@
-
-<%# encoding: utf-8%>
-
-I18n.report_missing_translations = <%= LocaleappI18nJs.report_missing_translations? %>
-I18n.localeapp_i18n_js_path = "/localeapp_i18n_js"
-
 // Instantiate the object
 var I18n = I18n || {};
+I18n.report_missing_translations = true //<%= LocaleappI18nJs.report_missing_translations? %>
+I18n.localeapp_i18n_js_path = "/localeapp_i18n_js"
 
 
 //Hijact the default missingTranslation method to post to our controller
