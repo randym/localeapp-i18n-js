@@ -1,16 +1,17 @@
 # Set up generator tests
-require 'rails/all'
+require "active_support/all"
+require "active_support/version"
+require "active_support/test_case"
+require "ostruct"
+require "pathname"
+require "i18n"
+require "json"
+require "fakeweb"
+FakeWeb.allow_net_connect = false
 
-class TestApp < Rails::Application
-  config.root = File.dirname(__FILE__)
-end
+# specified folder will be removed!
+Rails = OpenStruct.new({
+  :root => Pathname.new(File.dirname(__FILE__) + "/tmp"),
+  :version => "0"
+})
 
-Rails.application = TestApp
-
-module Rails
-  def self.root
-    @root ||= File.expand_path("../../tmp/rails", __FILE__)
-  end
-end
-
-Rails.application.config.root = Rails.root
