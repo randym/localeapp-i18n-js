@@ -15,14 +15,9 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
+  s.add_dependency "rails", '~> 3.2.1'
   s.add_dependency "i18n-js"
   s.add_dependency "localeapp"
+  s.add_development_dependency "sqlite3"
 
-  # crazy dependencies but if its a rails engine - it needs to be spec'd in rails
-  s.add_development_dependency 'rails', '~> 3.2.1'
-  s.add_development_dependency "activesupport", ">= 3.0.0"
-  s.add_development_dependency 'capybara', '~> 1.1.2'
-  s.add_development_dependency "rake"
-  s.add_development_dependency "pry"
-  s.add_development_dependency 'sqlite3'
 end

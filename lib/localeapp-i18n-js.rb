@@ -11,11 +11,10 @@ module LocaleappI18nJs
 
   def configured_environments
     cfg = ::Rails.application.config
-    if cfg.respond_to?(:localeapp_i18n_js) && cfg.localeapp_i18n_js.is_a?(Array)
-      cfg.localeapp_i18n_js
-    else
-      []
-    end
+    return [] unless cfg.respond_to?(:localeapp_i18n_js)
+    envs = cfg.localeapp_i18n_js
+    raise ArgumentError, "Rails.application.config.localeapp_18n_js must be an array. e.g. ['test', 'custom']. You specified: #{envs}" unless envs.is_a?(Array)
+    envs
   end
 
 end
