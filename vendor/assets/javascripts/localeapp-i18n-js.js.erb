@@ -1,30 +1,26 @@
+<% if LocaleappI18nJs.localeapp_initialized? && (!Localeapp.configuration.sending_disabled?) %>
 var I18n = I18n || {};
-I18n.report_missing_translations = <%= !Localeapp.configuration.sending_disabled? %>
-
 //override the default I18n-js missingTranslation method to post back missing translations
-if (I18n.report_missing_translations) {
 I18n.missingTranslation = function() {
   var path = [], count = arguments.length
   for (var i = 0; i < count; i++) {
     path.push(arguments[i]);
   }
   path = path.join('.')
-
   this.add_missing_translation(this.currentLocale(), path);
-
   return '[missing "' + this.currentLocale() + path + '" translation]';
-
 };
 
 I18n.add_missing_translation = function add_missing_translation(locale, key) {
-    $.ajax({
-      url: "localeapp_i18n_js",
-      type: 'POST',
-      dataType: 'json',
-      data: {locale: locale, key: key},
-      error: function(data, status, response) {
-	console.log(response)
-      }
-    });
+  $.ajax({
+    url: "localeapp_i18n_js",
+    type: 'POST',
+    dataType: 'json',
+    data: {locale: locale, key: key},
+    error: function(data, status, response) {
+      //undecided as to what should happen here..
+      console.log(response)
+    }
+  });
 }
-}
+<% end %>
