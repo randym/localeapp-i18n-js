@@ -2,7 +2,7 @@ module LocaleappI18nJs
   class LocaleappI18nJsController < ActionController::Base
 
     def show
-      render "localeapp_i18n_js/show", :layout => "application"
+      render "localeapp_i18n_js/show"
     end
 
     def update
