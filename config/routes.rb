@@ -4,3 +4,4 @@ Rails.application.routes.draw do
     get "localeapp_i18n_js", :to => "LocaleappI18nJs#show"
   end
 end
+

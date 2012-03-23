@@ -12,5 +12,7 @@ require 'test_helper'
       assert_response :success
     end
 
+    #TODO spec actual calls to localeapp
+
 
   end

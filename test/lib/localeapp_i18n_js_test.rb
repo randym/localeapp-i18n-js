@@ -5,4 +5,6 @@ class LocaleappI18nJsTest < ActiveSupport::TestCase
     assert_kind_of Module, LocaleappI18nJs
   end
 
+  #TODO -- spec localeapp_initialized?
+
 end

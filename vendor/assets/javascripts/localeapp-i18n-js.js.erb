@@ -1,4 +1,4 @@
-<% if LocaleappI18nJs.localeapp_initialized? && (!Localeapp.configuration.sending_disabled?) %>
+<% if(LocaleappI18nJs.localeapp_initialized?) %>
 var I18n = I18n || {};
 //override the default I18n-js missingTranslation method to post back missing translations
 I18n.missingTranslation = function() {
